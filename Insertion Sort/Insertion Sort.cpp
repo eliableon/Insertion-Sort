@@ -1,11 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <list>
-#include <unordered_map>
-#include <string>
-#include <optional>
-#include <algorithm>
+#include "BayesGame.h"
 
+#include <algorithm>
+#include <iostream>
+#include <list>
+#include <optional>
+#include <string>
+#include <unordered_map>
+#include <vector>
+
+// Existing insertionSort, bubbleSort, LRUCache, and runLRUDemo functions
+// remain unchanged here.
 // Function to perform insertion sort
 void insertionSort(std::vector<int>& arr) {
     for (size_t i = 1; i < arr.size(); ++i) {
@@ -145,39 +149,61 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    std::vector<int> data = { 12, 11, 13, 5, 6, 2, 7, 8, 5 };
+    std::vector<int> data = {
+        12, 11, 13, 5, 6, 2, 7, 8, 5
+    };
 
     std::cout << "Given Array: ";
+
     for (int num : data) {
         std::cout << num << " ";
     }
-    std::cout << '\n';
 
-    std::cout << "Press I for Insertion sort, B for Bubble sort, or L for LRU demo: ";
-    char c = std::cin.get();
+    std::cout << "\n\n";
+    std::cout << "Choose an option:\n";
+    std::cout << "  I - Insertion sort\n";
+    std::cout << "  B - Bubble sort\n";
+    std::cout << "  L - LRU demo\n";
+    std::cout << "  Or type 'Bayes Game' to continue\n";
+    std::cout << "\nSelection: ";
 
-    if (c == 'I' || c == 'i') {
+    std::string choice;
+    std::getline(std::cin, choice);
+
+    if (choice == "I" || choice == "i") {
         std::cout << "\nPerforming Insertion Sort...\n";
+
         insertionSort(data);
 
-        std::cout << "\nSorted array (Insertion Sort): ";
+        std::cout << "Sorted array: ";
+
         for (int num : data) {
             std::cout << num << " ";
         }
+
         std::cout << '\n';
     }
-    else if (c == 'B' || c == 'b') {
+    else if (choice == "B" || choice == "b") {
         std::cout << "\nPerforming Bubble Sort...\n";
+
         bubbleSort(data);
 
-        std::cout << "\nSorted array (Bubble Sort): ";
+        std::cout << "Sorted array: ";
+
         for (int num : data) {
             std::cout << num << " ";
         }
+
         std::cout << '\n';
     }
-    else if (c == 'L' || c == 'l') {
+    else if (choice == "L" || choice == "l") {
         runLRUDemo();
+    }
+    else if (choice == "Bayes Game" ||
+        choice == "bayes game" ||
+        choice == "BAYES GAME") {
+        BayesBeatGame game;
+        game.run();
     }
     else {
         std::cout << "\nInvalid input. Exiting program.\n";

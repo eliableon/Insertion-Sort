@@ -139,7 +139,11 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BayesGame.cpp" />
     <ClCompile Include="Insertion Sort.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BayesGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
